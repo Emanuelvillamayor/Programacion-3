@@ -1,0 +1,5 @@
+********************************************   CLASE 1  ******************************************************
+
+-Vamos a ver "lenguajes de servidor (backend)" , principalmente "php" como lenguaje central , tambien SQL
+ Del "lado del cliente (frontend)" se van a ver otros lenguajes.
+-Fechas de parciales : final semana  de abril o primera semana de mayo
