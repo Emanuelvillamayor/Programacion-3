@@ -9,11 +9,19 @@ Ejemplo: Se recibe la palabra “HOLA” y luego queda “ALOH”.
 
 function InvertirOrden($arrayCaracteres)
 {
+    $lenght = strlen($arrayCaracteres);
 
+    for($x =0;$x<$lenght/2;$x++){
+        $primerLetra = $arrayCaracteres[$x];
+        $ultimaLetra = $arrayCaracteres[$lenght-$x-1];
+        $arrayCaracteres[$x] = $ultimaLetra;
+        $arrayCaracteres[$lenght-$x-1] = $primerLetra;
+    }
+    return $arrayCaracteres;
    
 }
-$array =array('h','o','l','a');
-echo InvertirOrden($array);
+
+echo InvertirOrden("programacion 3");
 
 /*
 invertir_int = new Object[array.length];

@@ -47,7 +47,7 @@ class Rectangulo extends FiguraGeometrica
 
     public function ToString()
     {
-        return parent::ToString() ."<br>Lado Uno:".$this->_ladoUno."<br>Lado Dos:".$this->_ladoDos. $this->Dibujar();
+        return parent::ToString() ."<br>Lado Uno:".$this->_ladoUno."<br>Lado Dos:".$this->_ladoDos."<br>Dibujo:<br>". $this->Dibujar();
     }
 
 }
