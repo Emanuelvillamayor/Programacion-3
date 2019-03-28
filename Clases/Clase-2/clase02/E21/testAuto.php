@@ -15,8 +15,10 @@ no.
 */
 require "Clases21/Auto.php";
 
+
+
 //Crear dos objetos “Auto” de la misma marca y distinto color.
-$auto1 = new Auto("Renault","verde");
+$auto1 = new Auto("Renault","Verde");
 $auto2=new Auto("Renault","Rojo");
 
 //Crear dos objetos “Auto” de la misma marca, mismo color y distinto precio.

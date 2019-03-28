@@ -33,46 +33,38 @@ class Auto
  #Constructor
 
  function __construct()
- {
-    /* 
-     $this->_marca="Ford";
-     $this->_color="Negro";
-     $this->_precio =20;
-     $this->_fecha ="00/00/00";
-     */
-    
-    $params = func_get_args();
+	{
+        //valores por default peudo agregarlos o no
+        /*
+        $this->_marca="ford";
+        $this->_precio="2";
+        $this->_color="blaki";
+        $this->_fecha="00/00/00";
+        */
+
+		$params = func_get_args();
 		$num_params = func_num_args();
 		$funcion_constructor ='__construct'.$num_params;
 		if (method_exists($this,$funcion_constructor)) {
 			call_user_func_array(array($this,$funcion_constructor),$params);
-        }
-        
- }
+		}
+	}
+    public function __construct2($marca,$color){
+        self::__construct();
+        $this->_marca = $marca;
+        $this->_color = $color;
+    }
+    public function __construct3($marca,$color,$precio){
+        self::__construct($marca,$color);
+        $this->_precio = $precio;
+    }
+    public function __construct4($marca,$color,$precio,$fecha){
+        self::__construct($marca,$color,$precio);
+        $this->_fecha = $fecha;
+    }
 
- 
- //i. La marca y el color.
- public function __construct2($marca,$_color)
- {
-    self::__construct();
-    $this->_marca=$marca;
-    $this->_color=$_color;
- }
 
 
-//ii. La marca, color y el precio.
-public function __construct3($marca,$color,$precio)
-{
-    self::__construct2($marca,$color);
-    $this->_precio=$precio;
-}
-
-//iii. La marca, color, precio y fecha.
-public function __construct4($marca,$color,$precio,$fecha)
-{
-    self::__construct3($marca,$color,$precio);
-    $this->_fecha=$fecha;
-}
 
 
 #Metodos instancia
