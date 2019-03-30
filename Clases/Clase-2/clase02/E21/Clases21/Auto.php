@@ -6,6 +6,7 @@ _precio (Double)
 _marca (String).
 _fecha (DateTime)
 Realizar un constructor capaz de poder instanciar objetos pasándole como parámetros:
+//para eso con solo ponerle un valor por default a cada parametro lo hacemos "opcional"
 i. La marca y el color.
 ii. La marca, color y el precio.
 iii. La marca, color, precio y fecha.
@@ -32,38 +33,13 @@ class Auto
  
  #Constructor
 
- function __construct()
+ function __construct($_marca,$color,$precio=0.0,$fecha="00/00/00")
 	{
-        //valores por default peudo agregarlos o no
-        /*
-        $this->_marca="ford";
-        $this->_precio="2";
-        $this->_color="blaki";
-        $this->_fecha="00/00/00";
-        */
-
-		$params = func_get_args();
-		$num_params = func_num_args();
-		$funcion_constructor ='__construct'.$num_params;
-		if (method_exists($this,$funcion_constructor)) {
-			call_user_func_array(array($this,$funcion_constructor),$params);
-		}
-	}
-    public function __construct2($marca,$color){
-        self::__construct();
-        $this->_marca = $marca;
-        $this->_color = $color;
+        $this->_color=$color;
+        $this->_marca=$_marca;
+        $this->_precio=$precio;
+        $this->_fecha=$fecha;
     }
-    public function __construct3($marca,$color,$precio){
-        self::__construct($marca,$color);
-        $this->_precio = $precio;
-    }
-    public function __construct4($marca,$color,$precio,$fecha){
-        self::__construct($marca,$color,$precio);
-        $this->_fecha = $fecha;
-    }
-
-
 
 
 

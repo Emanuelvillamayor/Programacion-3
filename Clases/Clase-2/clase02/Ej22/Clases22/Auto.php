@@ -10,29 +10,15 @@ private $_fecha;
 
 #Constructor
 
-function __construct()
-   {
+function __construct($_marca,$color,$precio=0.0,$fecha="00/00/00")
+{
+    $this->_color=$color;
+    $this->_marca=$_marca;
+    $this->_precio=$precio;
+    $this->_fecha=$fecha;
+}
 
-       $params = func_get_args();
-       $num_params = func_num_args();
-       $funcion_constructor ='__construct'.$num_params;
-       if (method_exists($this,$funcion_constructor)) {
-           call_user_func_array(array($this,$funcion_constructor),$params);
-       }
-   }
-   public function __construct2($marca,$color){
-       self::__construct();
-       $this->_marca = $marca;
-       $this->_color = $color;
-   }
-   public function __construct3($marca,$color,$precio){
-       self::__construct($marca,$color);
-       $this->_precio = $precio;
-   }
-   public function __construct4($marca,$color,$precio,$fecha){
-       self::__construct($marca,$color,$precio);
-       $this->_fecha = $fecha;
-   }
+
 
 
 

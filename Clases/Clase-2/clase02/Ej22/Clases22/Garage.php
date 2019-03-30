@@ -30,31 +30,13 @@ class Garage
 
  #Constructores
 
- function __construct()
+ function __construct($razonSocial,$precioPorHora=0.0)
  {
-     $this->_razonSocial="";
-     $this->_precioPorHora=0.0;
-     //INICIALIZAR EL ARRAY
-     $this->_autos=[];
-
-    $params = func_get_args();
-    $num_params = func_num_args();
-    $funcion_constructor ='__construct'.$num_params;
-    if (method_exists($this,$funcion_constructor)) {
-        call_user_func_array(array($this,$funcion_constructor),$params);
-    }
- }
- 
- function __construct1($razonSocial)
- {
-     self::__construct();
      $this->_razonSocial=$razonSocial;
- }
-
- function __construct2($razonSocial,$precioPorHora)
- {
-     self::__construct1($razonSocial);
      $this->_precioPorHora=$precioPorHora;
+
+     //incializo el array
+     $this->_autos=[];
  }
 
 
