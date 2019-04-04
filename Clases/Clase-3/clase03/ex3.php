@@ -5,7 +5,7 @@ Utilizamosfuncion date()
 */
 
 //utilizo la "a" ya que mantiene todos los registros , si utilizo "w+" pisa todo
-$ar =fopen("Archivos/Minombre2","a");
+$ar =fopen("Archivos/Minombre2.txt","a");
 
 $nombre = "Emanuel villamayor" ;
 $fecha =date("r");

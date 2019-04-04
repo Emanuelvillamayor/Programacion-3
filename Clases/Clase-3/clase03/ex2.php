@@ -7,7 +7,7 @@ fopen y fgets me devuelva el contenido y con el echo veo el contenido del archiv
 $ar= fopen("Archivos/Minombre.txt","r");
 
 //le paso el tamaño total con el filesize para que sepa lo que tiene que leer
-   $contenido= fread($ar,filesize("Minombre.txt"));
+   $contenido= fread($ar,filesize("Archivos/Minombre.txt"));
 
    //no funciona porque el fread termina al final de la linea y si uso solo el fgets va a leer solo el final
   $contenido2= fgets($ar);

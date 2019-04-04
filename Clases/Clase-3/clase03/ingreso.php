@@ -9,7 +9,7 @@
 <body>
  <div>
  <!--action =pagina donde interactuamos con la clase =testPersona-->
-  <form action="index3.php" method="post" >
+  <form action="ex4.php" method="post" >
   
   Ingrese su nombre:<input type="text" name="nombre" id="nombre"><br>
   Ingrese su apellido:<input type="text" name="apellido" id="apellido"><br>
