@@ -21,7 +21,7 @@ poder retornar el mensaje y ser mostrado desesncriptado.
 </head>
 <body>
     <div>
-        <form action="Ej27.php" method="post">
+        <form action="Ej28.php" method="post">
             Ingrese ubicacion del archivo de texto:<Input type ="text" name="txtUbicacion" id="txtUbicacion" placeholder="Ingrese ubicacion..."><br>
             <input type="submit" name="enviar" id="enviar" value="Enviar">
         </form>

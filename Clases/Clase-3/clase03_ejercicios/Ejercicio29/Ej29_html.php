@@ -16,15 +16,15 @@ y el color de fondo de la página cambia a dicho color.
 <body>
     <div>
         <form action="Ej29.php" method="post">
-          Elija un color: <br>  <select id="select">
-                <option id="FF0000">Rojo</option>
-                <option id="00FF00">Verde</option>
-                <option id="0000FF">Azul</option>
-                <option id="FFFF33">Amarillo</option>
-                <option id="000000">Negro</option>
-                <option id="FF8D07">Naranja</option>
+          Elija un color: <br>  <select id="select" name ="select">
+                <option value="FF0000">Rojo</option>
+                <option value="00FF00">Verde</option>
+                <option value="0000FF">Azul</option>
+                <option value="FFFF33">Amarillo</option>
+                <option value="000000">Negro</option>
+                <option value="FF8D07">Naranja</option>
             </select> <br>   
-            Cambiar Color:<br><input type="button" id="btnColor" onclick="" value="Enviar">
+            Cambiar Color:<br><input type="submit" id="btnColor"  value="Enviar">
             
         </form>
     </div>
