@@ -6,6 +6,17 @@ control de tipo <textarea> su currículum. Mostrar los datos cargados en una nue
 PHP.
 */
 
+$nombre = $_POST["txtNombre"];
+$apellido=$_POST["txtApellido"];
+$direccion =$_POST["txtDireccion"];
+$email=$_POST["email"];
+$curriculum=$_POST["curriculum"];
+
+echo "Nombre:$nombre<br>Apellido:$apellido<br>Direccion:$direccion<br>Email:$email<br>Curriculum:$curriculum";
+
 
 
 ?>
+<br><br><br>
+
+<a href="Ej37_html.php"></a>

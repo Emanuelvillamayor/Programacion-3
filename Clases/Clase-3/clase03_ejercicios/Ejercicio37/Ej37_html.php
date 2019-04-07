@@ -20,7 +20,7 @@ PHP.
             Ingrese direccion:<input type="text" id="txtDireccion" name="txtDireccion" placeholder="Ingrese direccion..."><br>
             Ingrese mail:<input type="email" id="email" name="email" placeholder="Ingrese mail..."><br>
             Ingrese su curriculum:<br>
-            <textarea rows=10 cols="30">
+            <textarea  name="curriculum"rows=10 cols="30">
             </textarea>
 
  
