@@ -1,0 +1,57 @@
+                                              Clase 4:
+
+Generamos aplicacion nueva , y lo que vamos a hacer es , en un archivo de php hacer un var_dumo de $_File
+
+
+2-Generamos un form y le vamos inputs de agregar apellido , nombre , legajo y sueldo y tambien una foto al empleado
+  con un input de tipo file,cuando haga click en enviar , lo voy a llevar a un admin.php para procesar esa informacion
+  voy a tener dos var_dump , uno para $post y otro para $file.
+
+3-Dentro de admin (aparte e los var_dump de $_POST y $_FILE) 
+  Vamos a guardar la info que ingresa el usuario en un archivo de texto , como va a ser el alta para varios empleados
+  el modo de apertura va a ser de tipo "a"
+  En el archivo de texto no vy a guardar la imagen , sino el "nombre" de la imagen por lo tanto voy
+  a guardar todos string.
+  -Voy a crear la clase "Empleado":
+      *Apellido , Nombre , Legajo , Sueldo ,path_foto
+      *Constructor: recibe todos los parametros
+      *Funcion ToString() -> retorne en formato de cadena todos los atributos(separados por "-")
+       -Para hacer mas facil la busqueda vamos a tener que tener un identificador unico de ese empleado,
+        como identificador vamos a tener el "legajo" ya que este no puede repetirse , entonces este dato
+        lo podemos poner como primer elemento en el ToString :
+
+       "legajo-apellido-nombre-suelod-path_file"  
+      *Metodo de CLASE : Agregar() -> y recibe como parametro , objeto de tipo empleado
+
+4-En admin.php vamos a recuperar cada una de las variables , generar objeto de tipo empleado con eso , mas el path de la foto
+  para obtener el parth hacemos $_FILE["archivo"]["name] -> nos devuelve nombre del archivo
+  Todos esos valores se lo paso al constructor de mi clase empleado , una vez que tengo creado invoco a la funcion
+  Agregar()y verifico si el archivo se creo correctamente    
+
+5-En admin.php : de la foto voy a establecer cual va a ser el destino a "establecerse definitivamente" , "fotos_empleado"
+  va a ser nuestro directorio que debemos crearlo :
+
+   $destino ="fotos_empleados\" .  $_FILE["archivo]["name"] no voy a hacer esto porque si tengo dos empelados
+   del mismo "nombre" , o "mismo nombre de foto" , entonces vamos a RENOMBRAR LA FOTO INDEPENDIENTEMENTE
+   DE LA FOTO QUE SEA , PARA HACER ESO VAMOS A TOMAR COMO VALORES QUE NO SE VAN A REPETIR AL "legajo_apellido":
+   $destino="fotos_empleados\" . $_POST["legajo"] . "_" . $_POST["apellido] . "." . pathInfo($_FILE,PATHINFO_EXTENSION)
+ 
+
+    pathInfo(name del archivo , PATHINFO_EXTENSION)
+
+    Para agregar ese archivo es con (move_upload_file) :
+    Nescesito el origen de la foto($_FIle["archivo"]["tmp_name"]  y  el Destino
+
+6-En Empleados.php creamos METODO ESTATICO ->TraerTodos() 
+  va a retornar un array de empleados , la idea seria acceder al metodo y que me devuelva array con todos
+  los empleados , para obtener los distintos valores voy a tener que abrir e archivo en modo lectura
+  leer linea a linea y ejecutar para cada uno un "explode ("-",$cadena) " ->retorna array con las posiciones
+  de cada dato , y luego ahgo var_dump ($Empleado->TraerTodos())
+
+7-Vamos a mostrar esos datos en vez de con un var_dump , msotrarlo con html  , voy a recorrer el array de empleados
+  y por cada iteracion voy a hacer un echo ar[0] . ar[1] etc  a EXCEPCION DE ar[4]  esa le vamosa poner una etiqueta
+  de html que me permita visualizar la imagen ."<img src='" . ar[4] . '".ar[4] . " '/>";  
+
+
+   
+       
