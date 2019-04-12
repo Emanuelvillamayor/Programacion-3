@@ -42,9 +42,9 @@ $arrayEmpleados = $empleado->TraerTodos();
 foreach($arrayEmpleados as $empleadito)
 {
     echo "Legajo:" . $empleadito->legajo;
-     echo "Apellido:" . $empleadito->apellido;
-    echo "Nombre:". $empleadito->nombre
-    echo.$empleadito->sueldo."<img width=42 height=42 src='" . $empleadito->path_foto . "'/>" ."<br>";
+    echo "Apellido:" . $empleadito->apellido;
+    echo "Nombre:". $empleadito->nombre;
+    echo $empleadito->sueldo."<img width=42 height=42 src='" . $empleadito->path_foto . "'/>" ."<br>";
 }
 
 
