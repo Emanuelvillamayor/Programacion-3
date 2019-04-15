@@ -1,0 +1,41 @@
+
+                                              Clase 5
+
+1-Habilito apache y mysql 
+2-Hacer el "import" del archivo sql, solo para comprobar si este sirve
+3-Agregamos otra tabla , del modod "grafico" , voy al link de productos , y hago click en "nueva" y creamos
+  la tabla = usuarios , a esta tabla lea agregamos id (int autoincremental primary key),correo(varchar=50),
+  clave(varchar=8) nombre(varchar=50),apellido(varchar=50),perfil(int)  
+4-Dentro de php generamos la clase "Usuario" y que posea tantos atributos como columnas en la tabla
+  de "usuarios"
+  Constructor : que inicialize todo
+5-Dentro de php generamos clase BaseDatos, el cual va a teener el user y clave privados 
+  y un base publico y ESTATICOS TODOS , metodo estatico publico "EstablecerConexion()", este metodo a partir del nombre
+  de usuario , clave y la base de datos , me retorne el recurso de la conexion abierta sobre la base
+  de datos es decir el mysql_connect()
+  Metodo estatico publico "CerraConexion()" cierra conexion de esa base  
+
+  En la clase usuario ponemos metodo publico de instancia Traer($id) y va a devolver objeto
+  de tipo "Usuario" desde la base de datos de acuerdo al id pasado y si no hay ,retorna
+  null , lo que hace es ejecutar el metodo "EstablecerConexion" , establecer el mysql_db_query
+  y luego ejecutar la funcion CerrarConexion() , le hacemos un fetch object , recupero los valores
+  y genero objeto de tipo usuario
+  
+  En la clase usuario traigo en un array todos los objetos de la clase usuario o null
+  si es que no encuentra 1.
+
+  En la clase usuario creamos un metodo de instancia Eliminar(), sin parametros , ya que
+  eñ id lo voy a tener en la misma instancia , devuelve boolean , si se pudo o no eliminar
+
+ Administracion.php -> le agregamos el case "TraerUnUsuario"  y dentro recuperamos
+ el "valor del id" (similar al delete) y hago var_dump de lo que me devuelve
+
+ Metodo estatico agregar que reciba el objeto de tipo usuario que quiero agregar en la base de datos
+ a traves de bool me indica si pudo o no agreggar
+ 
+ Metodo Estatico modificar que lo que hace es , puedo modificar todo menos el id
+
+
+TP:
+Para ir practicando instrucciones en mysql no hace falta la parte de php
+
