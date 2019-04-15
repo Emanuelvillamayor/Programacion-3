@@ -1,11 +1,31 @@
 <?php
 
+//obtengo direccion a guardar del archivo
 $destino = "Archivos/" . $_FILES["foto"]["name"];
 
 $uploadOk=true;
 
+//obtengo su extencion
 $tipoArchivo=pathinfo($destino,PATHINFO_EXTENSION);
 
+
+
+
+//verifico que el archivo no exista para no repetir
+if(file_exists($destino))
+{
+    echo "El archivo ya existe. Verifique!!!";
+    $uploadOk = FALSE;
+}
+
+//VERIFICO EL TAMAÑO MAXIMO QUE PERMITO SUBIR
+if ($_FILES["foto"]["size"] > 50000000) {
+    echo "El archivo es demasiado grande. Verifique!!!";
+    $uploadOk = FALSE;
+}
+
+//OBTIENE EL TAMAÑO DE UNA IMAGEN, SI EL ARCHIVO NO ES UNA
+//IMAGEN, RETORNA FALSE
 $esImagen = getimagesize($_FILES["foto"]["tmp_name"]);
 
 if($esImagen==false)
@@ -29,9 +49,7 @@ else
         echo "<br/>Lamentablemente ocurri&oacute; un error y no se pudo subir el archivo.";
     }
 
-
-}
-
+    
 //agrego el destino de la imagen al txt
 Agregar($destino);
 
@@ -49,6 +67,12 @@ for($i=0 ;$i< count($array); $i++)
 
 echo "</table>";
 
+
+}
+
+
+
+//FUNCIONES
 function Agregar($direccion)
 {
     if(file_exists("imagenes.txt"))
