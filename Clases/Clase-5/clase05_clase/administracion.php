@@ -12,6 +12,7 @@ switch($queHago){
     case "establecerConexion":
 
         $con = @mysql_connect($host, $user, $pass);
+        
 
         echo "<pre>con = mysql_connect(host, user, pass)</pre>";
 
@@ -38,7 +39,11 @@ switch($queHago){
         
         $sql = "SELECT * FROM producto";
 
+        
+
         $rs = mysql_db_query($base, $sql);
+
+        echo "<br>".$rs."<br><br><br>";
 
         echo "<pre>
             con = mysql_connect(host, user, pass); 
@@ -153,35 +158,84 @@ switch($queHago){
 
     $id = isset($_POST['id']) ? $_POST['id'] : NULL;
 
-    /*$con = @mysql_connect($host, $user, $pass);
-
-    $sql = "SELECT * FROM usuarios WHERE id={$id}";
-
-    $rs=mysql_db_query($base,$sql);
-
-    $row=mysql_fetch_object($rs);
-
-    var_dump($row);*/
-
     $usuario= new Usuario();
+
    $validar=$usuario->TraerId($id);
 
-   if($validar!==null)
-   {
+    if($validar!==null)
+    {
        $usuario=$usuario->TraerId($id);
-    var_dump($usuario);
+        var_dump($usuario);
+    }
+    else
+    {
+       echo "es null";
+    }
+    break;
+
+    case "TraerTodosUsuarios":
+
+    $usuario=new Usuario();
+
+   $validar= $usuario->TraerTodos();
+
+   if($validar!==null && count($validar)!==0)
+   {
+       $usuarios=$usuario->TraerTodos();
+      var_dump($usuarios);
    }
    else
    {
-       echo "es null";
-}
+      echo "es null";
+   }
 
-    
-   
-   // mysql_close($con);
+   break;
 
+   case "EliminarUsuario":
+
+   $usuario = new Usuario(1);
+
+   if($usuario->Eliminar())
+   {
+       echo "Usuario eliminado";
+   }
+   else
+   {
+       echo "Error al eliminar usuario";
+   }
+
+   break;
+
+    case "AgregarUsuario":
+     $usuario = new Usuario(5,"robert@hotmail.com","333","roberto","nuñez",87);
+
+     if(Usuario::Agregar($usuario))
+     {
+         echo "usuario agregado";
+     }
+     else
+     {
+         echo " no se pudo agregar usuario";
+     }
 
     break;
+
+    case "ModificarUsuario":
+
+    $usuario = new Usuario(7,"cambio@hotmail.com","888","cambio","cambiaso",78);
+
+     if(Usuario::Modificar($usuario))
+     {
+         echo "usuario modificado";
+     }
+     else
+     {
+         echo " no se pudo modificar el usuario";
+     }
+
+
+        break;
+   
     
     default:
         echo ":(";

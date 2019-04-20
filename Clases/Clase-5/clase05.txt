@@ -30,6 +30,18 @@
  Administracion.php -> le agregamos el case "TraerUnUsuario"  y dentro recuperamos
  el "valor del id" (similar al delete) y hago var_dump de lo que me devuelve
 
+ Administracion.php -> le agregamos el case "TraerTodosUsuarios" , llaremos a la funcion de instancia
+ TraerTodos() que se encuentra en usuario.php la cual retornara un array con todos los usuarios
+
+ Administracion.php -> le agregamos el case "EliminarUsuario" , llamaremos a la funcion de instancia
+ Eliminar() que se encuentra en usuario.php la cual retornara un booleana si se pudo o no eliminar el usuario indicado
+
+ Administracion.php ->le agregamos el case "AgregarUsuario" , llamaremos a la funcion estatica
+ Agregar($obj) que se encuentra en usuario.php la cual retornara un bool si pudo agregar o no
+
+ Administracion.php ->le agregamos el case "ModificarUsuario , llamaremos a la funcion estatica 
+ Modificar($obj) que se encuentra en usuario.php la cual retornara uh bool si pudo modificar o nel
+
  Metodo estatico agregar que reciba el objeto de tipo usuario que quiero agregar en la base de datos
  a traves de bool me indica si pudo o no agreggar
  

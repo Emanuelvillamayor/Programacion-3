@@ -23,6 +23,7 @@
 
     public static function EstablecerConexion()
     {
+
        return $con = @mysql_connect("localhost", BaseDatos::$user, BaseDatos::$clave);
     }
 
