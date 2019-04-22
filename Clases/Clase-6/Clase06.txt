@@ -1,0 +1,30 @@
+                                     CLASE 06
+1-Generamos script , ahi generamos la conexion a partir de objeto PDP
+  y en los parametros le pasamos e "conexionString" , "usuario" ,"contraseña"
+2-Si no da error hago un "query" de la tabla "cds" , "SELECT * FROM cds"
+3-me retrona un objeto el qery al cual ejecutamos la funcion "fetchAll"
+  que nos retorna un array con los datos de la consulta ejecutada.
+4-con un var_dump mostramos los datos
+5-Mostrar datos de la tabla uno de bajo del otro
+
+
+
+A partir del ejercicio de la clase pasada(clase05) adaptarlo para PDO :
+
+Un METODO mostrar() para poder traer todos , traer 1 , insertar o modificar
+alguno puntual.
+ 
+ABM sobre la misma tabla 
+
+cd->usuario
+accesoDatos->BaseDatos
+nexo->administracion
+
+
+En Usuario , tener metodo estatico verificar y que reciba el nombre
+de usuario y la contraseña y esto que  retorne true o flase de acuerdo a si el
+mail y contraseña esta en la base o no , para eso internamente tiene que llamar
+a un traer usuario de acuerdo a mail y clave
+USUARIO::VERIFICAR($MAIL,$PASSWORD) RETORNA FALSE O TRU
+dentro utilizaremos un where maile=$mail and contraseña=$password
+y validamos con el rocount()

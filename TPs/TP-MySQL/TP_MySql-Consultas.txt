@@ -18,7 +18,7 @@
 8-SELECT sum(Cantidad) as total FROM envios where Numero=102 and pNumero=1
 
 9-SELECT envios.pNumero FROM envios 
-  INNER JOIN provedores ON provedores.Localidad="Avellaneda" AND envios.Numero=provedores.Numero
+  INNER JOIN provedores ON provedores.Localidad="Avellaneda" AND (envios.Numero=provedores.Numero)
 
 10-SELECT Domicilio,Localidad FROM provedores WHERE provedores.Nombre LIKE "%i%"
 
