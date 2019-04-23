@@ -73,7 +73,22 @@ switch ($op)
 
         echo "ok";
     
+    break;
 
+    case 'verificarUsuario':
+        $correo=$_POST['correo'];
+        $clave=$_POST['clave'];
+
+       //echo (int) usuario::Verificar("cambio@hotmail.com","888");
+
+        if(usuario::Verificar($correo,$clave))
+        {
+            echo "Usuario registrado";
+        }
+        else
+        {
+            echo "Usuario no registrado";
+        }
 
     break;
 

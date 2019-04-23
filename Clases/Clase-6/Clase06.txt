@@ -27,4 +27,4 @@ mail y contraseña esta en la base o no , para eso internamente tiene que llamar
 a un traer usuario de acuerdo a mail y clave
 USUARIO::VERIFICAR($MAIL,$PASSWORD) RETORNA FALSE O TRU
 dentro utilizaremos un where maile=$mail and contraseña=$password
-y validamos con el rocount()
+y validamos con el rowcount() si encontro o no

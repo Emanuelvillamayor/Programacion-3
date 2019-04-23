@@ -66,7 +66,6 @@ class usuario
         
         $consulta = $objetoAccesoDato->RetornarConsulta("SELECT * FROM usuarios");
 
-       // $consulta->bindValue(':id',  $id, PDO::PARAM_INT);
 
         $consulta->execute();
 
@@ -146,6 +145,30 @@ class usuario
 
       return $consulta->execute();
 
+    }
+
+    public static function Verificar($mail,$passw)
+    {
+      $retorno=false;
+
+      $objetoAccesoDato = AccesoDatos::DameUnObjetoAcceso();
+
+      $consulta = $objetoAccesoDato->RetornarConsulta("SELECT * FROM usuarios WHERE correo = :mail AND clave = :passw");
+
+      $consulta->bindValue(':mail',  $mail, PDO::PARAM_STR);
+      $consulta->bindValue(':passw',  $passw, PDO::PARAM_STR);
+
+      $consulta->execute();
+
+      //verifico que la cantidad sea distinta de cero si este recibio algo o nel
+      $cant = $consulta->rowCount();
+
+      if($cant!==0)
+      {
+        $retorno=true;
+      }
+    
+    return $retorno;
 
     }
     
