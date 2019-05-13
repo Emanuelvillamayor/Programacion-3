@@ -59,7 +59,7 @@ $app->get('/saludar/', function (Request $request, Response $response) {
 
 });
 
-//ruteo con parametros en GET
+//ruteo con parametros en GET devuelve el nombre ingresado en MAYUSCULA
 $app->get('/saludar/{nombre}', function (Request $request, Response $response ,$args) {  
     $nombre = $args['nombre'];  
     $response->getBody()->write(strtoupper($nombre));
@@ -100,15 +100,13 @@ $app->post('/saludar2/', function (Request $request, Response $response ,$args)
 
 //cargo datos con post desde el encabezado (un JSON y lo muestro)
 
-$app->post('/saludar3/{cadenaJson}/', function (Request $request, Response $response ,$args) 
+$app->post('/saludar3/{cadenaJson}', function (Request $request, Response $response ,$args) 
 {  
     $cadena = $args['cadenaJson'];
     
     //retorna objeto de tipo JSON
     $obj= json_decode($cadena);
     var_dump($obj);
-
-    return $newResponse;
 });
 
 //cargo datos con post desde input del body una cadena JSON y la recupero y la muestro
