@@ -1,0 +1,53 @@
+                                                CLASE 8
+Verificamos que tenemos el composer instalado : composer -v
+
+1-A la api le agregamos el GRUPO "credenciales" y le pasamos los verbos GET Y POST , en estos verbos
+  ponemos el mensaje "estoy en get" o "estoy en post"
+
+2-Generamos un middleware a nivel de grupo , despues de cerrar el grupo ponemos un "add" con la funcion 
+  y lo que hacemos es escribir un mensaje para indicar que estamos en el middleware.
+
+3-Dentro del middleware vamos a chequear si viene por GET o viene por POST , dentro del objeto REQUEST
+  pregunto si  "isGet()" o si "isPost()" y eso va a determinar si estoy llegando al midlleware por "get" o por
+  "post".
+
+4-Si viene por POST , voy a hacer "verificar Credeciales" el "tipo" y el "nombre" , le voy a tener que pasar a la
+  api , "tipo" y "nombre" , si detecto que vengo por post voy a mostrar ese tipo y ese nombre
+
+5-Si el "tipo" que recupero es "admin" , muestro el nombre y que haga el resto , si el "tipo" no es "admin"
+  se "corta la ejecucion" , no llego a la api y no muestro el resto del middleware nada, lo que hago es 
+  
+6-Generamos una clase (Test) con un metodo estatico y un metodo de instancia , lo probamos creando un nuevo grupo
+  llamado "test" desde el index.php
+
+7-Vamos a generar una clase "Usuario":
+
+   #atributos
+    -tipo(public)
+    -nombre(public)
+
+   #Metodos
+    -toString()-> devuelve "tipo-nombre"
+ 
+8-Generamos la clase "Verificadora.php"
+  Implementa la interfaz "IMiddlewareable" , aca ponemos metodos con la firma para generar los middleware.
+
+   #funciones:
+    - public function VerificarUsuario($request,$response,$next)      ->instancia
+      En esta funcion dentro de la clase "Verificadora" vamos a determinar si el metodo por elque lo llamamos es get o post
+      si es get no pasa nada , si es post verifica que el tipo sea admin , si es "admin" vamos a generar objeto JSON que tenga los parametros
+      "Exito" y "Mensaje"  en donde Exito va a ser TRUE y Mensaje el "Bienvenido"
+      Si Exito es true ponemos status en 200 , si Exito es false ponemos status 403
+      y si no es admin no llega nunca al post.
+      Retorna un "Response"
+
+9-Si le pego a mi grupo por POST y soy admin , ademas de que returne extio , mensaje y status , Dentro del verbo POST
+  en la api , voy a tomar ese "nombre" y es "tipo" y lo voy a escribir en un archivo de texto , lo que puedo hacer es
+  tomar el nombre , tomar tipo , generar instancia de tipo usuario y utilizar el ToString() que ya me va a guardar 
+  Desde la api recuperamos el objJson con un getParsedBody;
+
+10- En el verbo get de mi api hago la lectura , lo retorno como un arrayJson , nombre y tipo , es decir veo un listado
+
+11-Para probarlo , desde index.php creamos un group nuevo llamado POO
+      
+   
