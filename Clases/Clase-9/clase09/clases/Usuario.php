@@ -66,6 +66,7 @@ class Usuario
     public static function TraerListado()
     {
         $arrayUsuarios=Usuario::TraerTodos();
+
         $tabla="";
 
         $tabla .= "<table border=1>";
@@ -81,13 +82,13 @@ class Usuario
         {
             $tabla .= "<tr>";
             $tabla .= "<td>";
-            $tabla .= $arrayUsuarios->nombre;
+            $tabla .= $us->nombre;
             $tabla .= "</td>";
             $tabla .= "<td>";
-            $tabla .=$arrayUsuarios->apellido;
+            $tabla .=$us->apellido;
             $tabla .= "</td>";
             $tabla .= "<td>";
-            $tabla .= $arrayUsuarios->division;
+            $tabla .= $us->division;
             $tabla .= "</td>";
             $tabla .= "</tr>";
         }
