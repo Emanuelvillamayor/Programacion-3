@@ -36,6 +36,7 @@ $app->group('/empleado', function ()
     $this->delete('/Eliminar', \Empleado1::class . '::EliminarUsuario');
     $this->post('/Modificar',\Empleado1::class . '::ModificarUsuario');
     $this->get('/TraerUno', \Empleado1::class . '::TraerUnUsuario');  
+    $this->get('/TraerTodos', \Empleado1::class . '::TraerTodosLosUsuarios');  
 });
 
 
