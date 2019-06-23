@@ -186,6 +186,11 @@ class Media implements IBDApis
 
   }
 
+  public static function VerificarEmpleado($request,$response,$next)
+  {
+    
+  }
+
 
 
   #Metodos Base de Datos
